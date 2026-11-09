@@ -1,0 +1,8 @@
+REGEDIT4
+
+; ASCII fixture that can also be saved using a selected legacy code page.
+[HKEY_CURRENT_USER\Software\RegPluginExample]
+@="Legacy example"
+"Enabled"=dword:1
+"Binary"=hex:00,ab,ff
+"RemoveValue"=-

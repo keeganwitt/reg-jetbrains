@@ -1,0 +1,19 @@
+Windows Registry Editor Version 5.00
+
+; Illustrative editing fixture; importing it creates or removes example keys.
+[HKEY_CURRENT_USER\Software\RegPluginExample]
+@="Example default"
+"Text"="Unicode: café 例"
+"Path"="C:\\Example\\Folder"
+"Quoted"="A \"quoted\" string"
+"Enabled"=dword:00000001
+"EmptyBinary"=hex:
+"Binary"=hex:00,01,ab,\
+  cd,ef
+"Expandable"=hex(2):25,00,54,00,45,00,4d,00,50,00,25,00,00,00
+"MultiString"=hex(7):41,00,00,00,42,00,00,00,00,00
+"Qword"=hex(b):01,00,00,00,00,00,00,00
+"OtherType"=hex(abc):01,02
+"RemoveValue"=-
+
+[-HKEY_CURRENT_USER\Software\RegPluginOldExample]

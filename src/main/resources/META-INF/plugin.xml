@@ -1,0 +1,19 @@
+<idea-plugin>
+    <id>com.keeganwitt.reg</id>
+    <name>Windows Registry</name>
+    <vendor url="https://github.com/keeganwitt/reg-jetbrains">Keegan Witt</vendor>
+    <description><![CDATA[
+        Syntax highlighting, context-aware completion, and syntax diagnostics for Windows Registry (.reg) files.
+        Supports Version 5.00 and REGEDIT4 files without accessing the system Registry.
+    ]]></description>
+    <depends>com.intellij.modules.platform</depends>
+    <extensions defaultExtensionNs="com.intellij">
+        <fileType name="Windows Registry" language="Windows Registry" implementationClass="com.keeganwitt.reg.RegFileType" fieldName="INSTANCE" extensions="reg;REG"/>
+        <lang.parserDefinition language="Windows Registry" implementationClass="com.keeganwitt.reg.RegParserDefinition"/>
+        <lang.syntaxHighlighterFactory language="Windows Registry" implementationClass="com.keeganwitt.reg.RegSyntaxHighlighterFactory"/>
+        <colorSettingsPage implementation="com.keeganwitt.reg.RegColorSettingsPage"/>
+        <completion.contributor language="Windows Registry" implementationClass="com.keeganwitt.reg.RegCompletionContributor"/>
+        <lang.commenter language="Windows Registry" implementationClass="com.keeganwitt.reg.RegCommenter"/>
+        <lang.braceMatcher language="Windows Registry" implementationClass="com.keeganwitt.reg.RegBraceMatcher"/>
+    </extensions>
+</idea-plugin>
