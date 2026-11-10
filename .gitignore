@@ -4,3 +4,5 @@
 .worktrees/
 build/
 *.iml
+
+docs/superpowers/
