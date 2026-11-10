@@ -14,7 +14,11 @@ class RegParserDefinition : ParserDefinition {
     override fun getFileNodeType() = RegTokens.FILE
     override fun getCommentTokens() = TokenSet.create(RegTokens.COMMENT)
     override fun getStringLiteralElements() = TokenSet.create(RegTokens.STRING)
-    override fun createElement(node: ASTNode) = ASTWrapperPsiElement(node)
+    override fun createElement(node: ASTNode) = when (node.elementType) {
+        RegTokens.SECTION -> RegSection(node)
+        RegTokens.ENTRY -> RegEntry(node)
+        else -> ASTWrapperPsiElement(node)
+    }
     override fun createFile(viewProvider: FileViewProvider) = RegFile(viewProvider)
 }
 

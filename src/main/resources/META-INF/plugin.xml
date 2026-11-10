@@ -3,7 +3,7 @@
     <name>Windows Registry</name>
     <vendor url="https://github.com/keeganwitt/reg-jetbrains">Keegan Witt</vendor>
     <description><![CDATA[
-        Syntax highlighting, context-aware completion, and syntax diagnostics for Windows Registry (.reg) files.
+        Syntax highlighting, completion, syntax diagnostics, structure navigation, formatting, decoded previews, Quick Documentation, and context actions for Windows Registry (.reg) files.
         Supports Version 5.00 and REGEDIT4 files without accessing the system Registry.
     ]]></description>
     <depends>com.intellij.modules.platform</depends>
@@ -15,5 +15,26 @@
         <completion.contributor language="Windows Registry" implementationClass="com.keeganwitt.reg.RegCompletionContributor"/>
         <lang.commenter language="Windows Registry" implementationClass="com.keeganwitt.reg.RegCommenter"/>
         <lang.braceMatcher language="Windows Registry" implementationClass="com.keeganwitt.reg.RegBraceMatcher"/>
+        <lang.psiStructureViewFactory language="Windows Registry" implementationClass="com.keeganwitt.reg.RegStructureViewFactory"/>
+        <formattingService implementation="com.keeganwitt.reg.RegFormattingService"/>
+        <langCodeStyleSettingsProvider implementation="com.keeganwitt.reg.RegCodeStyleSettingsProvider"/>
+        <platform.backend.documentation.targetProvider implementation="com.keeganwitt.reg.RegDocumentationTargetProvider"/>
+        <errorQuickFixProvider implementation="com.keeganwitt.reg.RegSyntaxQuickFixProvider"/>
+        <localInspection language="Windows Registry" shortName="RegValueData"
+                         displayName="Registry value data" groupName="Windows Registry"
+                         enabledByDefault="true" level="WARNING"
+                         implementationClass="com.keeganwitt.reg.RegValueDataInspection"/>
+        <intentionAction>
+            <className>com.keeganwitt.reg.RegDwordConversionIntention</className>
+            <category>Windows Registry</category>
+        </intentionAction>
+        <intentionAction>
+            <className>com.keeganwitt.reg.RegStringConversionIntention</className>
+            <category>Windows Registry</category>
+        </intentionAction>
+        <codeInsight.declarativeInlayProvider language="Windows Registry" providerId="reg.decoded.values"
+                                            implementationClass="com.keeganwitt.reg.RegInlayHintsProvider" isEnabledByDefault="true"
+                                            bundle="messages.RegBundle" nameKey="inlay.decoded.name" descriptionKey="inlay.decoded.description"
+                                            group="VALUES_GROUP"/>
     </extensions>
 </idea-plugin>

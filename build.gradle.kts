@@ -54,4 +54,5 @@ tasks.processResources {
 
 tasks.named<org.jetbrains.intellij.platform.gradle.tasks.VerifyPluginTask>("verifyPlugin") {
     offline = true
+    systemProperty("plugin.verifier.home.dir", layout.buildDirectory.dir("pluginVerifier/home").get().asFile.absolutePath)
 }

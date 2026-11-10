@@ -1,0 +1,4 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Example]
+"Text"=hex(1):48,00,69,00,00,00

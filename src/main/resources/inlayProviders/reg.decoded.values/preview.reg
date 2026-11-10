@@ -1,0 +1,6 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Example]
+"Enabled"=dword:00000001<# REG_DWORD · 1 (0x00000001) #>
+"Text"=hex(2):48,00,69,00,00,00<# REG_EXPAND_SZ · "Hi" #>
+"Data"=hex:01,02,03<# REG_BINARY · 3 bytes #>
